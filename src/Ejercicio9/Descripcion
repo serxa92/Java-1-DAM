@@ -1,0 +1,78 @@
+📚 Ficheros binarios y serialización en Java
+
+🔹 ¿Qué es un fichero binario?
+Un fichero binario guarda los datos en formato binario (no texto).
+Por ejemplo, puedes guardar objetos enteros de una clase como Alumno,
+Persona, etc., para luego volver a cargarlos tal cual estaban.
+
+🔸 ¿Qué es “serializar”?
+
+- Serializar un objeto es convertirlo en una secuencia de bytes para:
+- Guardarlo en un archivo
+- Enviarlo por red
+- Restaurarlo más adelante (deserializar)
+
+🔄 Serializar = guardar
+🔁 Deserializar = recuperar
+
+🔧 ¿Cómo se hace en Java?
+✅ Paso 1: Implementar Serializable en tu clase
+
+public class Alumno implements Serializable {
+    private String nombre;
+    private int edad;
+
+    // Constructor + getters/setters + toString
+}
+🔒 Serializable no requiere que implementes métodos, solo es una marca para decir que se puede guardar.
+
+✅ Paso 2: Escribir objetos a un archivo (ObjectOutputStream)
+
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("alumnos.dat"));
+oos.writeObject(alumno1);
+oos.writeObject(alumno2);
+oos.close();
+
+✅ Paso 3: Leer objetos desde un archivo (ObjectInputStream)
+
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("alumnos.dat"));
+Alumno a1 = (Alumno) ois.readObject();
+Alumno a2 = (Alumno) ois.readObject();
+ois.close();
+
+⚠️ Cuidado:
+
+- Todas las clases que vayas a guardar deben implementar Serializable
+- Si guardas varios objetos, hay que saber cuántos hay, o usar ArrayList serializado
+-  que hacer cast al leer ((Alumno) ois.readObject())
+
+
+🧪 Ejercicio 9 – Guardar y recuperar alumnos con ficheros binarios
+
+🎯 Objetivo:
+Practicar la escritura y lectura de objetos completos (Alumno) en un fichero binario utilizando ObjectOutputStream y ObjectInputStream.
+
+📋 Enunciado:
+Crea la clase Alumno con:
+
+- Atributos: nombre (String), edad (int), notaMedia (double)
+- Constructor, getters, toString()
+- Implementa la interfaz Serializable
+- En la clase GestorAlumnos, crea dos métodos:
+    guardarAlumnos(List<Alumno> lista)
+    → Guarda todos los alumnos en un archivo binario llamado alumnos.dat
+    leerAlumnos()
+    → Lee y devuelve los alumnos guardados, y los muestra por consola
+
+En Main.java:
+
+- Crea una lista de 3 alumnos
+- Llama a guardarAlumnos(...)
+- Luego llama a leerAlumnos() y muestra los datos recuperados
+
+🧩 BONUS (opcional):
+
+- Controla excepciones (try-catch)
+- Usa try-with-resources
+- Comprueba si el archivo existe antes de leerlo
+
