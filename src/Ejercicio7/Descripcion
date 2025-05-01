@@ -1,0 +1,96 @@
+🧨 Tema 6 – Excepciones en Java
+
+
+📚 ¿Qué es una excepción?
+
+Una excepción es un error en tiempo de ejecución que interrumpe el programa.
+Java tiene un sistema muy potente para capturar esos errores y actuar sin que el programa se caiga.
+
+🎯 ¿Por qué usar excepciones?
+
+- Evitas que el programa se rompa al leer un archivo, dividir por cero, etc.
+- Puedes dar mensajes de error personalizados
+ -El código es más robusto y profesional
+
+🧩 Estructura básica
+
+try {
+    // Código que puede fallar
+} catch (TipoDeExcepcion e) {
+    // Qué hacer si ocurre ese error
+}
+🔍 Ejemplo: división por cero
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int resultado = 10 / 0;
+            System.out.println("Resultado: " + resultado);
+        } catch (ArithmeticException e) {
+            System.out.println("¡Error! No se puede dividir por cero.");
+        }
+    }
+}
+
+🧱 Tipos comunes de excepciones
+
+---------------------------------------------------------------------------------
+| Tipo	                           |           Cuándo ocurre                     |
+---------------------------------------------------------------------------------
+| ArithmeticException	           |         División por cero                   |
+---------------------------------------------------------------------------------
+| NullPointerException	           |       Acceder a un objeto nulo              |
+---------------------------------------------------------------------------------
+| ArrayIndexOutOfBoundsException   |       Índice fuera de rango                 |
+---------------------------------------------------------------------------------
+| NumberFormatException	           |    Convertir texto a número mal escrito     |
+---------------------------------------------------------------------------------
+| IOException	                   |      Problemas al leer/escribir archivos    |
+---------------------------------------------------------------------------------
+
+🧨 Crear tus propias excepciones
+
+
+throw new IllegalArgumentException("Edad no válida");
+
+Y puedes lanzar una excepción desde un método:
+
+public void setEdad(int edad) throws Exception {
+    if (edad < 0) {
+        throw new Exception("Edad negativa no permitida");
+    }
+}
+
+🧪 Ejercicio 7 – Validación de división y conversión con excepciones
+
+🎯 Objetivo:
+
+- Usar try-catch para capturar errores comunes
+- Lanzar errores personalizados con throw
+- Reforzar el control de flujo seguro
+
+📋 Enunciado:
+Crea una clase llamada Calculadora con:
+- Método dividir(int a, int b) que devuelva a / b
+- Dentro del método, usa try-catch para evitar división por cero y mostrar un mensaje
+- Crea otro método en la misma clase:
+- convertirAEntero(String texto) que intente convertir un String a int
+- Si el texto no es un número válido, lanza una excepción NumberFormatException y
+  captura el error con un mensaje claro
+
+ En Main, prueba lo siguiente:
+
+- Dividir 10 entre 0
+- Convertir el texto "abc" a número
+- Convertir correctamente "123" y dividirlo entre 3
+
+🎁 BONUS - - Excepción personalizada: EdadInvalidaException
+
+🧩 Crea una clase Persona con:
+
+- Atributo edad (int)
+- Método setEdad(int edad) que:
+- Si la edad es menor que 0, lance una excepción personalizada llamada EdadInvalidaException
+-  es válida, la asigna
+- Crea la clase EdadInvalidaException que herede de Exception
+- En Main, intenta crear una Persona con edad -5 y captura el error mostrando un mensaje claro.

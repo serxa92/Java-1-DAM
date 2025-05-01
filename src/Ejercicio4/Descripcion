@@ -1,0 +1,53 @@
+🧠 ¿Qué es una interfaz en Java?
+
+Una interfaz es como un contrato: define métodos que una clase debe implementar,
+pero no contiene la implementación, solo la forma (la “firma” del metodo).
+
+Se usa para definir comportamientos comunes entre clases que pueden no tener relación directa.
+
+📌 Ejemplo de la vida real:
+
+Volador es una interfaz que dice: "todo el que quiera volar, debe tener el metodo volar()".
+
+Tanto un Pájaro como un Avión pueden implementar esa interfaz, aunque no tengan nada que ver como clases.
+
+🧩 Sintaxis básica:
+🔹 Definir una interfaz
+
+
+public interface Volador {
+    void volar();  // metodo sin cuerpo
+}
+🔹 Implementarla en una clase
+
+
+public class Pájaro implements Volador {
+    public void volar() {
+        System.out.println("El pájaro vuela con sus alas.");
+    }
+}
+
+
+public class Avion implements Volador {
+    public void volar() {
+        System.out.println("El avión vuela con motores.");
+    }
+}
+
+
+
+🧪 Ejercicio 4 – Interfaces: Volador
+
+🎯 Enunciado
+Crea una interfaz llamada Volador con un metodo void volar();.
+
+Crea una clase Pajaro que implemente Volador. El metodo volar() debe imprimir: "El pájaro vuela con sus alas."
+
+Crea otra clase Avion que también implemente Volador. El metodo debe imprimir: "El avión vuela con motores."
+
+En la clase Main, haz:
+
+Crear un objeto Pajaro y otro Avion
+
+Llamar a su metodo volar()
+

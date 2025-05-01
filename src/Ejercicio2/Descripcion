@@ -1,0 +1,79 @@
+POO Parte 2 – Herencia e Interfaces
+
+🧠 Resumen claro: Herencia en Java
+
+🔹 ¿Qué es la herencia?
+Permite que una clase herede atributos y métodos de otra.
+Se usa para reutilizar código y modelar relaciones del tipo “es un”.
+
+Ejemplo clásico:
+
+Animal es la clase padre o superclase
+
+Perro y Gato son subclases que heredan de Animal
+
+🧩 Sintaxis básica
+
+
+public class Animal {
+    String nombre;
+
+    public void hacerSonido() {
+        System.out.println("El animal hace un sonido.");
+    }
+}
+
+
+public class Perro extends Animal {
+    public void hacerSonido() {
+        System.out.println("El perro ladra.");
+    }
+
+    public void moverCola() {
+        System.out.println("El perro mueve la cola.");
+    }
+}
+▶️ Uso en el main
+
+
+Perro p = new Perro();
+p.nombre = "Toby";
+p.hacerSonido();     // Llama al método sobrescrito
+p.moverCola();       // Método propio del Perro
+
+🔁 ¿Qué es super?
+La palabra clave super te permite:
+
+Llamar al constructor del padre
+
+Acceder a métodos o atributos del padre
+
+
+public class Perro extends Animal {
+    public Perro(String nombre) {
+        super(); // llama al constructor de Animal (si tiene uno)
+        this.nombre = nombre;
+    }
+}
+
+
+
+🧪 Ejercicio 2: Clases Animal, Perro y Gato
+
+Te propongo lo siguiente:
+
+Clase Animal con:
+
+Atributo nombre
+
+Método hacerSonido()
+
+Clases Perro y Gato que heredan de Animal
+
+Cada una sobreescribe hacerSonido() con un mensaje distinto
+
+En Main:
+
+Crear un Perro y un Gato
+
+Llamar a hacerSonido() de cada unomo

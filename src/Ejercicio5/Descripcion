@@ -1,0 +1,125 @@
+Colecciones en Java – ArrayList
+
+🔹 ¿Qué es una colección?
+
+Una colección es un contenedor dinámico de datos. A diferencia de un array (String[]),
+las colecciones pueden crecer o reducirse en tiempo de ejecución.
+
+🔸 ArrayList: la colección más usada
+Un ArrayList es como un array, pero más potente. Permite:
+
+- Añadir y eliminar elementos fácilmente
+- Recorrerlos con bucles
+- Usar cualquier tipo de dato (incluso clases personalizadas)
+
+📦 Sintaxis básica
+
+import java.util.ArrayList;
+
+ArrayList<String> nombres = new ArrayList<>();
+nombres.add("Ana");
+nombres.add("Luis");
+System.out.println(nombres.get(0)); // Ana
+
+
+🧱 Con objetos personalizados
+Supón que tienes una clase Alumno:
+
+
+public class Alumno {
+    String nombre;
+    int edad;
+
+    public Alumno(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public void saludar() {
+        System.out.println("Hola, soy " + nombre);
+    }
+}
+Entonces puedes hacer:
+
+
+ArrayList<Alumno> lista = new ArrayList<>();
+lista.add(new Alumno("María", 20));
+lista.add(new Alumno("Pedro", 22));
+
+
+🔁 Recorrer un ArrayList
+Usando for-each:
+
+for (Alumno a : lista) {
+    a.saludar();
+}
+Usando índice:
+
+for (int i = 0; i < lista.size(); i++) {
+    lista.get(i).saludar();
+}
+🔍 Filtrar y buscar
+
+for (Alumno a : lista) {
+    if (a.edad >= 21) {
+        System.out.println(a.nombre + " es mayor de 20");
+    }
+}
+🔎 Métodos útiles
+------------------------------------------------------------
+| Método	         |       Qué hace                       |
+------------------------------------------------------------
+| add(obj)	         |    Añade un objeto                   |
+------------------------------------------------------------
+| get(i)	         |  Devuelve el objeto en posición i    |
+------------------------------------------------------------
+| remove(i)	         |    Elimina el objeto en posición i   |
+------------------------------------------------------------
+| size()	         |    Nº de elementos                   |
+-------------------------------------------------------------
+| clear()	         |    Vacía la lista                    |
+-------------------------------------------------------------
+
+✅ Resumen rápido
+------------------------------------------------------------
+|         Concepto	          |  Array  |    ArrayList     |
+------------------------------------------------------------
+|  Tamaño fijo	              |   ✅	|   ❌(dinámico)   |
+------------------------------------------------------------
+|  Puede crecer	              |   ❌	|        ✅        |
+------------------------------------------------------------
+|  Fácil de usar con objetos  |   ❌	|        ✅        |
+------------------------------------------------------------
+|  Métodos avanzados	      |   ❌	|        ✅        |
+------------------------------------------------------------
+
+🧪 Ejercicio 5 – Gestión de Alumnos con ArrayList
+
+🎯 Objetivo:
+Practicar el uso de ArrayList con clases personalizadas, recorrer la lista, filtrar y mostrar información.
+
+📋 Enunciado:
+Crea una clase Alumno con:
+
+- Atributos: nombre (String), edad (int), notaMedia (double)
+- Constructor para inicializarlos
+- Método mostrarDatos() que imprima algo como:
+
+Nombre: Ana
+Edad: 20
+Nota media: 8.5
+
+
+En la clase Main:
+
+- Declara un ArrayList<Alumno>
+- Añade al menos 3 alumnos con datos distintos
+- Recorre la lista con un bucle for-each y llama a mostrarDatos() de cada alumno
+- Filtra y muestra solo los alumnos con nota mayor o igual a 7.0
+
+🧩 Ejercicio7.Bonus (si quieres practicar más):
+
+- Calcula y muestra la nota media total del grupo
+- Muestra el alumno con la nota más alta
+- Ordena la lista por nota (si te atreves con comparadores)
+

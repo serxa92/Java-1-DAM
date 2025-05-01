@@ -1,0 +1,68 @@
+Estructuras dinámicas – LinkedList, Stack y Queue
+
+🔹 1. LinkedList
+Es como un ArrayList, pero mejor para añadir/quitar elementos al principio o en medio.
+Internamente es una lista doblemente enlazada.
+
+import java.util.LinkedList;
+
+LinkedList<String> nombres = new LinkedList<>();
+nombres.add("Ana");
+nombres.addFirst("Pedro");  // inserta al principio
+nombres.addLast("Laura");   // inserta al final
+System.out.println(nombres); // [Pedro, Ana, Laura]
+
+🔹 2. Stack – Pila (LIFO: el último que entra es el primero que sale)
+
+import java.util.Stack;
+
+Stack<String> pila = new Stack<>();
+pila.push("A");  // Añadir
+pila.push("B");
+pila.push("C");
+System.out.println(pila.pop()); // Saca y devuelve "C"
+System.out.println(pila.peek()); // Mira el tope ("B")
+
+🔹 3. Queue – Cola (FIFO: el primero que entra es el primero que sale)
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+Queue<String> cola = new LinkedList<>();
+cola.add("Ana");
+cola.add("Luis");
+System.out.println(cola.poll()); // Saca y devuelve "Ana"
+System.out.println(cola.peek()); // Mira el primero ("Luis")
+
+
+🧪 Ejercicio 6 – Simulación de navegador y cola de impresión
+
+🎯 Objetivo:
+Practicar Stack (pila) y Queue (cola) con clases personalizadas y lógica realista.
+
+📋 Enunciado:
+Parte 1 – Historial de navegación (pila con Stack)
+
+Crea una clase PaginaWeb con:
+
+- Atributo url (String)
+- Constructor y método mostrar() que imprima algo como: "Página: www.google.com"
+- En Main, declara un Stack<PaginaWeb> llamado historial.
+- Simula la navegación:
+- Añade varias páginas (push)
+- Simula retroceder (pop) y mostrar la página anterior
+- Usa peek() para ver la página actual sin quitarla
+
+Parte 2 – Cola de impresión (cola con Queue)
+
+- Crea una clase Documento con:
+- Atributo titulo (String)
+- Constructor y método imprimir() que diga: "Imprimiendo: TrabajoFinal.pdf"
+- En Main, declara un Queue<Documento> llamado colaImpresion.
+
+Simula:
+
+- Añadir documentos a la cola (add)
+- Imprimir documentos uno a uno (poll y llamar a imprimir())
+
+
