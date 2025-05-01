@@ -1,0 +1,147 @@
+🧾 Lectura y escritura de ficheros en Java
+
+📌 1. ¿Qué es un fichero?
+- Un fichero es un archivo de texto que puedes leer o modificar desde Java.
+
+Usamos los ficheros para:
+
+- Guardar información (como si fuera una libreta)
+- Leer datos externos (listas, configuraciones, etc.)
+
+🔧 2. ¿Qué clases se usan?
+
+----------------------------------------------------------------------
+|    Clase	            |           Para qué sirve                   |
+|-----------------------|--------------------------------------------|
+|    File	            |      Representa un archivo o carpeta       |
+|-----------------------|--------------------------------------------|
+|   FileReader	        |      Lee caracteres de un archivo          |
+|-----------------------|--------------------------------------------|
+|   BufferedReader	    |     Lee líneas completas (más eficiente)   |
+|-----------------------|--------------------------------------------|
+|   FileWriter	        |   Escribe caracteres en un archivo         |
+|-----------------------|--------------------------------------------|
+|  BufferedWriter	    |      Escribe texto de forma eficiente      |
+|---------------------------------------------------------------------
+
+📘 3. Leer un archivo paso a paso
+
+import java.io.*;
+
+try {
+    BufferedReader br = new BufferedReader(new FileReader("datos.txt"));
+    String linea;
+    while ((linea = br.readLine()) != null) {
+        System.out.println(linea);
+    }
+    br.close();
+} catch (IOException e) {
+    System.out.println("Error al leer el archivo: " + e.getMessage());
+}
+
+✅ Explicación:
+
+- FileReader abre el archivo
+- BufferedReader lo recorre línea por línea
+- readLine() devuelve cada línea
+- br.close() cierra el archivo
+
+🔎 Analogía: como leer un libro página a página con un escáner.
+
+✍️ 4. Escribir en un archivo paso a paso
+
+import java.io.*;
+
+try {
+    BufferedWriter bw = new BufferedWriter(new FileWriter("salida.txt"));
+    bw.write("Hola mundo");
+    bw.newLine();
+    bw.write("Otra línea más");
+    bw.close();
+} catch (IOException e) {
+    System.out.println("Error al escribir: " + e.getMessage());
+}
+
+✅ Explicación:
+
+- FileWriter abre o crea el archivo
+- BufferedWriter escribe de forma más rápida
+- write() añade texto
+- newLine() pone un salto de línea
+- close() guarda y cierra
+
+🔎 Analogía: como escribir en una hoja con impresora en vez de bolígrafo.
+
+🔒 5. try-with-resources (modo seguro)
+
+Java permite abrir archivos de forma automática y segura con esta estructura:
+
+
+try (BufferedReader br = new BufferedReader(new FileReader("archivo.txt"))) {
+    // leer líneas aquí
+} catch (IOException e) {
+    // gestionar error
+}
+🔐 Ventaja: no necesitas llamar a .close(), lo hace solo.
+
+⚠️ 6. ¿Qué pasa si el archivo no existe?
+
+Saltará una excepción (FileNotFoundException o IOException).
+Por eso, siempre debes usar try-catch para evitar que el programa se rompa.
+
+🧠 7. Resumen rápido de acciones comunes
+
+-----------------------------------------------------------------------------------------------------
+| Acción                  | Código                             | Resultado                          |
+|------------------------ |------------------------------------|------------------------------------|
+| Leer línea              | br.readLine()                      | Devuelve la línea leída            |
+|------------------------ |------------------------------------|------------------------------------|
+| Escribir línea          | bw.write("Texto")                  | Escribe "Texto" en el archivo      |
+|------------------------ |------------------------------------|------------------------------------|
+| Crear archivo           | new FileWriter("nuevo.txt")        | Crea un nuevo archivo              |
+|------------------------ |------------------------------------|------------------------------------|
+| Cerrar archivo          | bw.close()                         | Guarda y cierra el archivo         |
+|------------------------ |------------------------------------|------------------------------------|
+| Crear carpeta           | new File("nuevaCarpeta").mkdir()   | Crea una nueva carpeta             |
+|------------------------ |------------------------------------|------------------------------------|
+| Borrar archivo          | new File("archivo.txt").delete()   | Borra el archivo                   |
+|------------------------ |------------------------------------|------------------------------------|
+| Listar archivos         | new File("carpeta").listFiles()    | Devuelve un array de archivos      |
+-----------------------------------------------------------------------------------------------------
+
+🧪 Ejercicio 8 – Leer nombres desde un archivo y escribir saludos en otro
+🎯 Objetivo:
+
+- Practicar con BufferedReader y BufferedWriter para:
+- Leer datos línea a línea desde un .txt
+- Procesarlos
+- Escribir resultados en otro .txt
+
+📋 Enunciado:
+Crea un archivo llamado nombres.txt con contenido como este:
+
+- Ana
+- Luis
+- María
+- Jorge
+
+Crea una clase Saludador con un método saludarNombres(), que:
+
+- Lea el archivo nombres.txt (uno por línea)
+- Por cada nombre, genere un saludo tipo:
+- "Hola, Ana!", "Hola, Luis!", etc.
+- Guarde esos saludos en un nuevo archivo llamado saludos.txt
+- Muestra por consola un mensaje al terminar: "Se han guardado los saludos correctamente."
+
+📂 Estructura de carpetas:
+src
+└── Ejercicio8
+    ├── Saludador.java
+    ├── nombres.txt
+    └── saludos.txt
+
+
+🧩 BONUS (opcional):
+
+- Añade un contador de cuántos saludos se han generado
+- Controla excepciones (try-catch) y muestra errores si el archivo no existe
