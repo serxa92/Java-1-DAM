@@ -1,0 +1,87 @@
+Tema 10 – Interfaces Gráficas con Swing,
+
+
+Aunque no es lo más moderno (JavaFX lo ha sustituido en muchos sitios),
+Swing sigue siendo lo que entra en exámenes de DAM, así que ¡a por ello!
+
+🧠 ¿Qué es Swing?
+Swing es una biblioteca gráfica de Java para crear interfaces de usuario (GUI).
+Te permite añadir:
+
+- Ventanas (JFrame)
+- Botones (JButton)
+- Campos de texto (JTextField)
+- Etiquetas (JLabel)
+- Paneles (JPanel)
+- etc.
+
+🧩 Estructura típica de una ventana con Swing
+
+import javax.swing.*;
+
+public class MiVentana extends JFrame {
+
+    public MiVentana() {
+        setTitle("Mi primera ventana");
+        setSize(300, 200);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Centrar la ventana
+
+        // Crear un botón
+        JButton boton = new JButton("Haz clic");
+
+        // Añadir el botón al frame
+        add(boton);
+
+        setVisible(true); // Mostrar la ventana
+    }
+
+    public static void main(String[] args) {
+        new MiVentana(); // Lanza la ventana
+    }
+}
+🔎 Explicación rápida:
+
+---------------------------------------------------------------------------------
+|     Línea	                          |                Qué hace                 |
+|-------------------------------------|-----------------------------------------|
+|  extends JFrame                     | 	       Hereda de la clase ventana   |
+|-------------------------------------|-----------------------------------------|
+|  setTitle(...)	                  |            Pone el título de la ventana |
+|-------------------------------------|-----------------------------------------|
+|  setSize(...)	                      |             Define el tamaño            |
+|-------------------------------------|-----------------------------------------|
+|  setDefaultCloseOperation(...)	  |                 Qué pasa al cerrar      |
+|-------------------------------------|-----------------------------------------|
+|  JButton boton = new JButton(...)	  |             Crea un botón               |
+|-------------------------------------|-----------------------------------------|
+|  add(boton)	                      |   Lo añade al contenido de la ventana   |
+|-------------------------------------|-----------------------------------------|
+|  setVisible(true)                   |        	Muestra la interfaz             |
+---------------------------------------------------------------------------------
+
+⚠️ Importante:
+
+Swing funciona por componentes, y todo se organiza dentro de contenedores (JPanel, JFrame, etc.)
+
+Puedes organizar los elementos con layout managers (BorderLayout, FlowLayout, etc.).
+
+🧪 Ejercicio 10 – Ventana con campo de texto y botón
+
+🎯 Objetivo:
+Crear una pequeña ventana que:
+
+- Tenga un campo de texto
+- Un botón que, al hacer clic, muestre un mensaje usando el texto introducido
+
+📋 Enunciado:
+
+Crea una clase llamada VentanaSaludo que extienda JFrame
+
+Dentro del constructor:
+
+- Añade un JTextField para introducir el nombre
+- Añade un JButton con el texto "Saludar"
+- Añade un JLabel para mostrar el resultado del saludo
+- Al pulsar el botón, debe leer el nombre del JTextField y mostrar en el JLabel:
+  👉 "Hola, [nombre]!"
