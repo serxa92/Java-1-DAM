@@ -1,0 +1,114 @@
+📚 JDBC (Java Database Connectivity)
+
+🧩 ¿Qué es JDBC?
+
+JDBC (Java Database Connectivity) es una puerta de enlace entre Java y una base de datos.
+Es como una traductora que:
+
+- Recibe consultas SQL desde Java
+- Las manda a la base de datos
+- Recoge los resultados
+- Te los devuelve en objetos Java
+
+🔧 ¿Qué necesitas para usar JDBC?
+
+- Una base de datos (como MySQL o SQLite)
+- Un driver JDBC (un archivo .jar que actúa como traductor)
+- Código Java para:
+  - Conectarte
+  - Lanzar consultas SQL
+  - Leer y usar los resultados
+
+🧱 Estructura típica de un programa con JDBC
+
+. Conectarse:
+
+Connection con = DriverManager.getConnection(url, usuario, contraseña);
+
+. Crear consulta:
+
+Statement stmt = con.createStatement();
+
+. Ejecutar consulta:
+
+ResultSet rs = stmt.executeQuery("SELECT * FROM alumnos");
+
+. Recorrer resultados:
+
+while (rs.next()) {
+    System.out.println(rs.getString("nombre"));
+}
+. Cerrar recursos (opcional si usas try-with-resources, recomendado):
+
+rs.close();
+stmt.close();
+con.close();
+
+🎯 ¿Qué puedes hacer con JDBC?
+
+|--------------------------------------|-----------------------------|
+|             Acción	               |              Método         |
+|--------------------------------------|-----------------------------|
+|      Leer datos	                   |           executeQuery()    |
+|--------------------------------------|-----------------------------|
+|      Insertar datos                  |           executeUpdate()   |
+|--------------------------------------|-----------------------------|
+|      Borrar / actualizar	           |           executeUpdate()   |
+|--------------------------------------|-----------------------------|
+|      Preparar consultas seguras	   |           PreparedStatement |
+|--------------------------------------|-----------------------------|
+
+🧠 JDBC vs SQL
+
+JDBC no sustituye SQL, sino que lo envía a la base de datos.
+
+Escribes SELECT, INSERT, DELETE como siempre, pero desde Java.
+
+🔌 ¿Qué bases de datos puedes usar?
+
+- Motor => Ideal para...	URL típica
+- MySQL => Proyectos grandes, servidor web	jdbc:mysql://localhost:3306/mi_bd
+- SQLite => Proyectos pequeños, sin instalar nada	jdbc:sqlite:alumnos.db
+
+🧪 Ejercicio 11 – Leer una tabla de alumnos desde SQLite con JDBC
+
+🎯 Objetivo:
+
+- Conectar Java a una base de datos SQLite
+- Leer una tabla alumnos
+- Mostrar los datos por consola desde Java
+
+📋 Enunciado:
+
+Prepara la base de datos:
+
+- Crea un archivo llamado alumnos.db
+- Dentro debe haber una tabla llamada alumnos con al menos los campos:
+    -id (INTEGER PRIMARY KEY)
+    -nombre (TEXT)
+    -edad (INTEGER)
+
+Puedes usar DB Browser for SQLite (recomendado) o crearlo con código SQL:
+
+CREATE TABLE alumnos (
+    id INTEGER PRIMARY KEY,
+    nombre TEXT,
+    edad INTEGER
+);
+
+INSERT INTO alumnos (nombre, edad) VALUES ('Ana', 20), ('Luis', 22), ('María', 19);
+
+
+En Java, crea una clase ConexionSQLite que:
+
+- Se conecte a alumnos.db (debe estar en la raíz del proyecto)
+- Lance una consulta SQL: SELECT * FROM alumnos
+- Recorra los resultados y muestre por consola:
+    - ID: 1 - Nombre: Ana - Edad: 20
+    - ID: 2 - Nombre: Luis - Edad: 22
+    - ...
+
+🧩 BONUS (opcional):
+
+- Crear una clase Alumno para guardar los resultados como objetos
+- Mostrar la lista con un bucle for-each

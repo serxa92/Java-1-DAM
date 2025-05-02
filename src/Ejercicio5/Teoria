@@ -1,4 +1,5 @@
 Colecciones en Java – ArrayList
+---
 
 🔹 ¿Qué es una colección?
 
@@ -6,11 +7,13 @@ Una colección es un contenedor dinámico de datos. A diferencia de un array (St
 las colecciones pueden crecer o reducirse en tiempo de ejecución.
 
 🔸 ArrayList: la colección más usada
-Un ArrayList es como un array, pero más potente. Permite:
 
+Un ArrayList es como un array, pero más potente. Permite:
 - Añadir y eliminar elementos fácilmente
 - Recorrerlos con bucles
 - Usar cualquier tipo de dato (incluso clases personalizadas)
+
+---
 
 📦 Sintaxis básica
 
@@ -21,6 +24,7 @@ nombres.add("Ana");
 nombres.add("Luis");
 System.out.println(nombres.get(0)); // Ana
 
+---
 
 🧱 Con objetos personalizados
 Supón que tienes una clase Alumno:
@@ -46,18 +50,22 @@ ArrayList<Alumno> lista = new ArrayList<>();
 lista.add(new Alumno("María", 20));
 lista.add(new Alumno("Pedro", 22));
 
+---
 
-🔁 Recorrer un ArrayList
-Usando for-each:
+🔁 Recorrer un ArrayList:
+
+🔹 Usando for-each:
 
 for (Alumno a : lista) {
     a.saludar();
 }
-Usando índice:
+🔹 Usando índice:
 
 for (int i = 0; i < lista.size(); i++) {
     lista.get(i).saludar();
 }
+
+
 🔍 Filtrar y buscar
 
 for (Alumno a : lista) {
@@ -66,32 +74,34 @@ for (Alumno a : lista) {
     }
 }
 🔎 Métodos útiles
-------------------------------------------------------------
-| Método	         |       Qué hace                       |
-------------------------------------------------------------
-| add(obj)	         |    Añade un objeto                   |
-------------------------------------------------------------
-| get(i)	         |  Devuelve el objeto en posición i    |
-------------------------------------------------------------
-| remove(i)	         |    Elimina el objeto en posición i   |
-------------------------------------------------------------
-| size()	         |    Nº de elementos                   |
--------------------------------------------------------------
-| clear()	         |    Vacía la lista                    |
--------------------------------------------------------------
+
+|--------------------|-------------------------------------|
+|      Método	     |            Qué hace                 |
+|--------------------|-------------------------------------|
+|    add(obj)	     |         Añade un objeto             |
+|--------------------|-------------------------------------|
+|    get(i)	         |  Devuelve el objeto en posición i   |
+|--------------------|-------------------------------------|
+|    remove(i)	     |    Elimina el objeto en posición i  |
+|--------------------|-------------------------------------|
+|    size()	         |         Nº de elementos             |
+|--------------------|-------------------------------------|
+|    clear()	     |         Vacía la lista              |
+|--------------------|-------------------------------------|
 
 ✅ Resumen rápido
-------------------------------------------------------------
+
+|-----------------------------|---------|------------------|
 |         Concepto	          |  Array  |    ArrayList     |
-------------------------------------------------------------
-|  Tamaño fijo	              |   ✅	|   ❌(dinámico)   |
-------------------------------------------------------------
-|  Puede crecer	              |   ❌	|        ✅        |
-------------------------------------------------------------
+|-----------------------------|---------|------------------|
+|       Tamaño fijo	          |   ✅	|   ❌(dinámico)   |
+|-----------------------------|---------|------------------|
+|      Puede crecer	          |   ❌	|        ✅        |
+|-----------------------------|---------|------------------|
 |  Fácil de usar con objetos  |   ❌	|        ✅        |
-------------------------------------------------------------
+|-----------------------------|---------|------------------|
 |  Métodos avanzados	      |   ❌	|        ✅        |
-------------------------------------------------------------
+|-----------------------------|---------|------------------|
 
 🧪 Ejercicio 5 – Gestión de Alumnos con ArrayList
 

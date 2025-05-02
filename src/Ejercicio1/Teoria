@@ -1,6 +1,8 @@
 POO en Java (Parte 1)
+---
 
 🔹 ¿Qué es una clase?
+
 Una clase es un molde o plantilla para crear objetos. Define atributos (datos) y
 métodos (funciones) que los objetos tendrán.
 
@@ -14,7 +16,11 @@ public class Coche {
         System.out.println("El coche está arrancando...");
     }
 }
+
+---
+
 🔹 ¿Qué es un objeto?
+
 Un objeto es una instancia de una clase. Se crea usando new.
 
 public class Main {
@@ -25,7 +31,11 @@ public class Main {
         miCoche.arrancar(); // Llama al método
     }
 }
+
+---
+
 🔹 Constructor
+
 Es un método especial que se llama al crear el objeto y sirve para inicializarlo.
 
 
@@ -43,10 +53,13 @@ public class Coche {
         System.out.println("Marca: " + marca + ", Año: " + año);
     }
 }
+
 Y se usa así:
 
 Coche miCoche = new Coche("Toyota", 2020);
 miCoche.info();
+
+---
 
 🔹 Encapsulamiento (getters y setters)
 
@@ -64,14 +77,14 @@ public class Persona {
         nombre = n;
     }
 }
+
+---
+
 🧪 Ejercicio 1: clase Libro
 
 Crea una clase Libro con:
 
-Atributos: titulo, autor, paginas.
-
-Constructor para inicializarlo.
-
-Método mostrarInfo() que imprima sus datos.
-
-Haz un main que cree 2 libros y llame al método mostrarInfo() de cada uno.
+- Atributos: titulo, autor, paginas.
+- Constructor para inicializarlo.
+- Método mostrarInfo() que imprima sus datos.
+- Haz un main que cree 2 libros y llame al método mostrarInfo() de cada uno.
