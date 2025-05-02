@@ -49,8 +49,8 @@ Este repositorio contiene las prácticas y ejercicios del módulo de **Programac
 
 ## 👤 Autor
 
-- **Sergio Agulla**  
-- [LinkedIn](https://www.linkedin.com/in/sergio-agulla/)
+
+ [Sergio Agulla](https://www.linkedin.com/in/sergio-agulla/)
 
 ---
 
