@@ -9,8 +9,8 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/netflixdb";
-        String user = "root";
-        String pass = "citroenC4";
+        String user = "tuUsuario";
+        String pass = "tuContraseña";
 
         // try-with-resources: los recursos se cierran automáticamente
         try (
